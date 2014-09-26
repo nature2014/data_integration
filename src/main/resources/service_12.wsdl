@@ -1,0 +1,1168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://sdfyy.cn/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sdfyy.cn/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://sdfyy.cn/">
+      <s:element name="AppApplyLis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inparam1" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inparam2" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppApplyLisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppApplyLisResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppApplyUpYkrk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="charge_code" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="buy_price" type="s:decimal"/>
+            <s:element minOccurs="1" maxOccurs="1" name="buy_amt" type="s:decimal"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eff_date" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="manu_no" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="rept_no" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="supply_coop" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="manufacture" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="license_no" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="purchaser" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="checker" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="group_no" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="accept_man" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppApplyUpYkrkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppApplyUpYkrkResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppApplyUpMzyfCk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prescriptionno" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="win_no" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="py_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="py_date" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fy_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="group_no" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="ypmxs" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppApplyUpMzyfCkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppApplyUpMzyfCkResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppApplyPivasLayResiByCarry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="parent_no" type="s:decimal"/>
+            <s:element minOccurs="1" maxOccurs="1" name="occ_time" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="carry_amount" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="p_operator" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppApplyPivasLayResiByCarryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppApplyPivasLayResiByCarryResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHisData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inputxml" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHisDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHisDataResult" type="tns:ArrayOfString"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLabMaster">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inpatient_no" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabMasterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLabMasterResult" type="tns:ArrayOfString"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="SpecimenNo" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLabResultResult" type="tns:ArrayOfString"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mobileno" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="smID" type="s:long"/>
+            <s:element minOccurs="1" maxOccurs="1" name="srcID" type="s:long"/>
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="sendTime" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSmsResult" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InputFee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pxml" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InputFeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InputFeeResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mrn" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPatientResult" type="tns:yh_patient"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="yh_patient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="patientID" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="series" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="mrn" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="wardCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="bedNo" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="birthday" type="s:dateTime"/>
+          <s:element minOccurs="0" maxOccurs="1" name="admissionTime" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="disTime" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="admissionWardTime" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="nursingLevel" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="diagnosis" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="condition" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="doctorCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="doctorName" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="height" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="sumCost" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="prePayments" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="selfPayments" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="arrearFlag" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="allergyHistory" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="insuranceType" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="deptCode" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="sex" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getPatient_series">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mrn" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="series" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPatient_seriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPatient_seriesResult" type="tns:yh_patient"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOutPatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mrn" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOutPatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOutPatientResult" type="tns:yh_patient"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPatientsByWard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wardCode" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPatientsByWardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPatientsByWardResult" type="tns:ArrayOfYh_patient"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfYh_patient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="yh_patient" nillable="true" type="tns:yh_patient"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getDepts">
+        <s:complexType/>
+      </s:element>
+      <s:element name="getDeptsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDeptsResult" type="tns:ArrayOfYh_dept"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfYh_dept">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="yh_dept" nillable="true" type="tns:yh_dept"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="yh_dept">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="deptCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="deptName" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getWards">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deptCode" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWardsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getWardsResult" type="tns:ArrayOfYh_ward"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfYh_ward">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="yh_ward" nillable="true" type="tns:yh_ward"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="yh_ward">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="wardCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="deptCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="wardName" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getWard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wardCode" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getWardResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUsers">
+        <s:complexType/>
+      </s:element>
+      <s:element name="getUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUsersResult" type="tns:ArrayOfYh_user"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfYh_user">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="yh_user" nillable="true" type="tns:yh_user"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="yh_user">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="userCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="deptCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="wardCode" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getUsersWard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wardCode" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUsersWardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUsersWardResult" type="tns:ArrayOfYh_user"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userCode" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserResult" type="tns:yh_user"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOutPatients">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dis_date_s" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="dis_date_e" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOutPatientsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOutPatientsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema"/>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlstr" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPatientInfoResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppApply">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="trade" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="strInput" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="strOutput" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema"/>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppApplyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema"/>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppApplyTran">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCon" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="sqlList" type="tns:ArrayOfAnyType"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AppApplyTranResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AppApplyTranResult" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PubProc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="trade" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="procname" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="sqlConnection" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="input" type="tns:ArrayOfArrayOfAnyType"/>
+            <s:element minOccurs="0" maxOccurs="1" name="output" type="tns:ArrayOfArrayOfAnyType"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errmsg" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfAnyType" nillable="true" type="tns:ArrayOfAnyType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PubProcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="output" type="tns:ArrayOfArrayOfAnyType"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errmsg" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AppApplyLisSoapIn">
+    <wsdl:part name="parameters" element="tns:AppApplyLis"/>
+  </wsdl:message>
+  <wsdl:message name="AppApplyLisSoapOut">
+    <wsdl:part name="parameters" element="tns:AppApplyLisResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AppApplyUpYkrkSoapIn">
+    <wsdl:part name="parameters" element="tns:AppApplyUpYkrk"/>
+  </wsdl:message>
+  <wsdl:message name="AppApplyUpYkrkSoapOut">
+    <wsdl:part name="parameters" element="tns:AppApplyUpYkrkResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AppApplyUpMzyfCkSoapIn">
+    <wsdl:part name="parameters" element="tns:AppApplyUpMzyfCk"/>
+  </wsdl:message>
+  <wsdl:message name="AppApplyUpMzyfCkSoapOut">
+    <wsdl:part name="parameters" element="tns:AppApplyUpMzyfCkResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AppApplyPivasLayResiByCarrySoapIn">
+    <wsdl:part name="parameters" element="tns:AppApplyPivasLayResiByCarry"/>
+  </wsdl:message>
+  <wsdl:message name="AppApplyPivasLayResiByCarrySoapOut">
+    <wsdl:part name="parameters" element="tns:AppApplyPivasLayResiByCarryResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetHisDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHisData"/>
+  </wsdl:message>
+  <wsdl:message name="GetHisDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHisDataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetLabMasterSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLabMaster"/>
+  </wsdl:message>
+  <wsdl:message name="GetLabMasterSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLabMasterResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetLabResultSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLabResult"/>
+  </wsdl:message>
+  <wsdl:message name="GetLabResultSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLabResultResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SendSmsSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSms"/>
+  </wsdl:message>
+  <wsdl:message name="SendSmsSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="InputFeeSoapIn">
+    <wsdl:part name="parameters" element="tns:InputFee"/>
+  </wsdl:message>
+  <wsdl:message name="InputFeeSoapOut">
+    <wsdl:part name="parameters" element="tns:InputFeeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getPatientSoapIn">
+    <wsdl:part name="parameters" element="tns:getPatient"/>
+  </wsdl:message>
+  <wsdl:message name="getPatientSoapOut">
+    <wsdl:part name="parameters" element="tns:getPatientResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getPatient_seriesSoapIn">
+    <wsdl:part name="parameters" element="tns:getPatient_series"/>
+  </wsdl:message>
+  <wsdl:message name="getPatient_seriesSoapOut">
+    <wsdl:part name="parameters" element="tns:getPatient_seriesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getOutPatientSoapIn">
+    <wsdl:part name="parameters" element="tns:getOutPatient"/>
+  </wsdl:message>
+  <wsdl:message name="getOutPatientSoapOut">
+    <wsdl:part name="parameters" element="tns:getOutPatientResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getPatientsByWardSoapIn">
+    <wsdl:part name="parameters" element="tns:getPatientsByWard"/>
+  </wsdl:message>
+  <wsdl:message name="getPatientsByWardSoapOut">
+    <wsdl:part name="parameters" element="tns:getPatientsByWardResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getDeptsSoapIn">
+    <wsdl:part name="parameters" element="tns:getDepts"/>
+  </wsdl:message>
+  <wsdl:message name="getDeptsSoapOut">
+    <wsdl:part name="parameters" element="tns:getDeptsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getWardsSoapIn">
+    <wsdl:part name="parameters" element="tns:getWards"/>
+  </wsdl:message>
+  <wsdl:message name="getWardsSoapOut">
+    <wsdl:part name="parameters" element="tns:getWardsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getWardSoapIn">
+    <wsdl:part name="parameters" element="tns:getWard"/>
+  </wsdl:message>
+  <wsdl:message name="getWardSoapOut">
+    <wsdl:part name="parameters" element="tns:getWardResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:getUsers"/>
+  </wsdl:message>
+  <wsdl:message name="getUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:getUsersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getUsersWardSoapIn">
+    <wsdl:part name="parameters" element="tns:getUsersWard"/>
+  </wsdl:message>
+  <wsdl:message name="getUsersWardSoapOut">
+    <wsdl:part name="parameters" element="tns:getUsersWardResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getUserSoapIn">
+    <wsdl:part name="parameters" element="tns:getUser"/>
+  </wsdl:message>
+  <wsdl:message name="getUserSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetOutPatientsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOutPatients"/>
+  </wsdl:message>
+  <wsdl:message name="GetOutPatientsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOutPatientsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetPatientInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPatientInfo"/>
+  </wsdl:message>
+  <wsdl:message name="GetPatientInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPatientInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AppApplySoapIn">
+    <wsdl:part name="parameters" element="tns:AppApply"/>
+  </wsdl:message>
+  <wsdl:message name="AppApplySoapOut">
+    <wsdl:part name="parameters" element="tns:AppApplyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AppApplyTranSoapIn">
+    <wsdl:part name="parameters" element="tns:AppApplyTran"/>
+  </wsdl:message>
+  <wsdl:message name="AppApplyTranSoapOut">
+    <wsdl:part name="parameters" element="tns:AppApplyTranResponse"/>
+  </wsdl:message>
+  <wsdl:message name="PubProcSoapIn">
+    <wsdl:part name="parameters" element="tns:PubProc"/>
+  </wsdl:message>
+  <wsdl:message name="PubProcSoapOut">
+    <wsdl:part name="parameters" element="tns:PubProcResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="AppApplyLis">
+      <wsdl:input message="tns:AppApplyLisSoapIn"/>
+      <wsdl:output message="tns:AppApplyLisSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyUpYkrk">
+      <wsdl:input message="tns:AppApplyUpYkrkSoapIn"/>
+      <wsdl:output message="tns:AppApplyUpYkrkSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyUpMzyfCk">
+      <wsdl:input message="tns:AppApplyUpMzyfCkSoapIn"/>
+      <wsdl:output message="tns:AppApplyUpMzyfCkSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyPivasLayResiByCarry">
+      <wsdl:input message="tns:AppApplyPivasLayResiByCarrySoapIn"/>
+      <wsdl:output message="tns:AppApplyPivasLayResiByCarrySoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetHisData">
+      <wsdl:input message="tns:GetHisDataSoapIn"/>
+      <wsdl:output message="tns:GetHisDataSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabMaster">
+      <wsdl:input message="tns:GetLabMasterSoapIn"/>
+      <wsdl:output message="tns:GetLabMasterSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabResult">
+      <wsdl:input message="tns:GetLabResultSoapIn"/>
+      <wsdl:output message="tns:GetLabResultSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <wsdl:input message="tns:SendSmsSoapIn"/>
+      <wsdl:output message="tns:SendSmsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="InputFee">
+      <wsdl:input message="tns:InputFeeSoapIn"/>
+      <wsdl:output message="tns:InputFeeSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getPatient">
+      <wsdl:input message="tns:getPatientSoapIn"/>
+      <wsdl:output message="tns:getPatientSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getPatient_series">
+      <wsdl:input message="tns:getPatient_seriesSoapIn"/>
+      <wsdl:output message="tns:getPatient_seriesSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getOutPatient">
+      <wsdl:input message="tns:getOutPatientSoapIn"/>
+      <wsdl:output message="tns:getOutPatientSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientsByWard">
+      <wsdl:input message="tns:getPatientsByWardSoapIn"/>
+      <wsdl:output message="tns:getPatientsByWardSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDepts">
+      <wsdl:input message="tns:getDeptsSoapIn"/>
+      <wsdl:output message="tns:getDeptsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getWards">
+      <wsdl:input message="tns:getWardsSoapIn"/>
+      <wsdl:output message="tns:getWardsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getWard">
+      <wsdl:input message="tns:getWardSoapIn"/>
+      <wsdl:output message="tns:getWardSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <wsdl:input message="tns:getUsersSoapIn"/>
+      <wsdl:output message="tns:getUsersSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersWard">
+      <wsdl:input message="tns:getUsersWardSoapIn"/>
+      <wsdl:output message="tns:getUsersWardSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:input message="tns:getUserSoapIn"/>
+      <wsdl:output message="tns:getUserSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutPatients">
+      <wsdl:input message="tns:GetOutPatientsSoapIn"/>
+      <wsdl:output message="tns:GetOutPatientsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientInfo">
+      <wsdl:input message="tns:GetPatientInfoSoapIn"/>
+      <wsdl:output message="tns:GetPatientInfoSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AppApply">
+      <wsdl:input message="tns:AppApplySoapIn"/>
+      <wsdl:output message="tns:AppApplySoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyTran">
+      <wsdl:input message="tns:AppApplyTranSoapIn"/>
+      <wsdl:output message="tns:AppApplyTranSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="PubProc">
+      <wsdl:input message="tns:PubProcSoapIn"/>
+      <wsdl:output message="tns:PubProcSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AppApplyLis">
+      <soap:operation soapAction="http://sdfyy.cn/AppApplyLis" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyUpYkrk">
+      <soap:operation soapAction="http://sdfyy.cn/AppApplyUpYkrk" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyUpMzyfCk">
+      <soap:operation soapAction="http://sdfyy.cn/AppApplyUpMzyfCk" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyPivasLayResiByCarry">
+      <soap:operation soapAction="http://sdfyy.cn/AppApplyPivasLayResiByCarry" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHisData">
+      <soap:operation soapAction="http://sdfyy.cn/GetHisData" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabMaster">
+      <soap:operation soapAction="http://sdfyy.cn/GetLabMaster" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabResult">
+      <soap:operation soapAction="http://sdfyy.cn/GetLabResult" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <soap:operation soapAction="http://sdfyy.cn/SendSms" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InputFee">
+      <soap:operation soapAction="http://sdfyy.cn/InputFee" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatient">
+      <soap:operation soapAction="http://sdfyy.cn/getPatient" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatient_series">
+      <soap:operation soapAction="http://sdfyy.cn/getPatient_series" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOutPatient">
+      <soap:operation soapAction="http://sdfyy.cn/getOutPatient" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientsByWard">
+      <soap:operation soapAction="http://sdfyy.cn/getPatientsByWard" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepts">
+      <soap:operation soapAction="http://sdfyy.cn/getDepts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWards">
+      <soap:operation soapAction="http://sdfyy.cn/getWards" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWard">
+      <soap:operation soapAction="http://sdfyy.cn/getWard" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <soap:operation soapAction="http://sdfyy.cn/getUsers" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersWard">
+      <soap:operation soapAction="http://sdfyy.cn/getUsersWard" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap:operation soapAction="http://sdfyy.cn/getUser" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutPatients">
+      <soap:operation soapAction="http://sdfyy.cn/GetOutPatients" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientInfo">
+      <soap:operation soapAction="http://sdfyy.cn/GetPatientInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppApply">
+      <soap:operation soapAction="http://sdfyy.cn/AppApply" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyTran">
+      <soap:operation soapAction="http://sdfyy.cn/AppApplyTran" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PubProc">
+      <soap:operation soapAction="http://sdfyy.cn/PubProc" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AppApplyLis">
+      <soap12:operation soapAction="http://sdfyy.cn/AppApplyLis" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyUpYkrk">
+      <soap12:operation soapAction="http://sdfyy.cn/AppApplyUpYkrk" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyUpMzyfCk">
+      <soap12:operation soapAction="http://sdfyy.cn/AppApplyUpMzyfCk" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyPivasLayResiByCarry">
+      <soap12:operation soapAction="http://sdfyy.cn/AppApplyPivasLayResiByCarry" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHisData">
+      <soap12:operation soapAction="http://sdfyy.cn/GetHisData" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabMaster">
+      <soap12:operation soapAction="http://sdfyy.cn/GetLabMaster" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabResult">
+      <soap12:operation soapAction="http://sdfyy.cn/GetLabResult" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <soap12:operation soapAction="http://sdfyy.cn/SendSms" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InputFee">
+      <soap12:operation soapAction="http://sdfyy.cn/InputFee" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatient">
+      <soap12:operation soapAction="http://sdfyy.cn/getPatient" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatient_series">
+      <soap12:operation soapAction="http://sdfyy.cn/getPatient_series" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOutPatient">
+      <soap12:operation soapAction="http://sdfyy.cn/getOutPatient" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientsByWard">
+      <soap12:operation soapAction="http://sdfyy.cn/getPatientsByWard" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepts">
+      <soap12:operation soapAction="http://sdfyy.cn/getDepts" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWards">
+      <soap12:operation soapAction="http://sdfyy.cn/getWards" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWard">
+      <soap12:operation soapAction="http://sdfyy.cn/getWard" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <soap12:operation soapAction="http://sdfyy.cn/getUsers" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersWard">
+      <soap12:operation soapAction="http://sdfyy.cn/getUsersWard" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap12:operation soapAction="http://sdfyy.cn/getUser" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutPatients">
+      <soap12:operation soapAction="http://sdfyy.cn/GetOutPatients" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientInfo">
+      <soap12:operation soapAction="http://sdfyy.cn/GetPatientInfo" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppApply">
+      <soap12:operation soapAction="http://sdfyy.cn/AppApply" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppApplyTran">
+      <soap12:operation soapAction="http://sdfyy.cn/AppApplyTran" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PubProc">
+      <soap12:operation soapAction="http://sdfyy.cn/PubProc" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://webapp.his.sdfyy.cn/webapp/service.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://webapp.his.sdfyy.cn/webapp/service.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
