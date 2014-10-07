@@ -6,9 +6,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <groupId>data.integration.org</groupId>
+    <groupId>org.cyznj.integration</groupId>
     <artifactId>dpmessage</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+    <packaging>war</packaging>
 
     <dependencies>
         <dependency>
@@ -47,6 +48,11 @@
             <artifactId>spring-integration-http</artifactId>
             <version>4.0.4.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-xml</artifactId>
+            <version>4.0.4.RELEASE</version>
+        </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -64,4 +70,16 @@
             <version>1.1.2</version>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <warSourceDirectory>WebContent</warSourceDirectory>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
