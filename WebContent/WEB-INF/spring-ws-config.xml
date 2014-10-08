@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sws="http://www.springframework.org/schema/web-services"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services.xsd">
 
-	<import resource="inbound-gateway-config.xml"/>
+    <sws:dynamic-wsdl id="echo"
+                      portTypeName="HolidayRequest"
+                      locationUri="/service/"
+                      targetNamespace="http://mycompany.com/hr/schemas">
+        <sws:xsd location="/WEB-INF/echo.xsd"/>
+    </sws:dynamic-wsdl>
 
-	<!-- Ensures that all incoming requests will be routed to the ws:inbound-gateway -->
-	<bean class="org.springframework.ws.server.endpoint.mapping.UriEndpointMapping">
-		<property name="defaultEndpoint" ref="ws-inbound-gateway"/>
-	</bean>
+    <import resource="inbound-gateway-config.xml"/>
+
+    <!-- Ensures that all incoming requests will be routed to the ws:inbound-gateway -->
+    <bean class="org.springframework.ws.server.endpoint.mapping.UriEndpointMapping">
+        <property name="defaultEndpoint" ref="ws-inbound-gateway"/>
+    </bean>
 
 </beans>
