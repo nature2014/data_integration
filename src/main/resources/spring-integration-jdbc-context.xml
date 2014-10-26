@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:integration="http://www.springframework.org/schema/integration"
+       xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://114.215.183.100:3306/test"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="personResultMapper" class="jdbc.PersonMapper"/>
+
+    <int:channel id="target"/>
+
+    <!-- 查询Person表，然后成功之后更新时间戳flagtime-->
+    <int-jdbc:inbound-channel-adapter query="select id,name,gender,identitycard,birthday,flagtime from person where flagtime>:flagtime"
+                                      select-sql-parameter-source="parameterSource"
+                                      channel="target" data-source="dataSource"
+                                      update="update person set flagtime=now() where id in(:id)" row-mapper="personResultMapper">
+        <!--频率为：10秒间隔 -->
+        <int:poller fixed-rate="10000">
+            <int:transactional/>
+        </int:poller>
+    </int-jdbc:inbound-channel-adapter>
+
+    <bean id="parameterSource" factory-bean="parameterSourceFactory"
+          factory-method="createParameterSourceNoCache">
+        <constructor-arg value=""/>
+    </bean>
+
+    <bean id="parameterSourceFactory"
+          class="org.springframework.integration.jdbc.ExpressionEvaluatingSqlParameterSourceFactory">
+        <property name="parameterExpressions">
+            <map>
+                <entry key="flagtime" value="@statusBean.getFlagTime()"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="statusBean" class="jdbc.service.FlagTimeService">
+        <property name="beforeMinute" value="-100"/>
+    </bean>
+
+    <bean id="jdbcMessageHandler" class="jdbc.service.PersonService">
+    </bean>
+
+    <!--服务激活器 -->
+    <integration:service-activator input-channel="target"
+                                   ref="jdbcMessageHandler" method="handleMessage"/>
+
+</beans>
