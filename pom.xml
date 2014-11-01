@@ -11,6 +11,13 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
+    <distributionManagement>
+        <repository>
+            <id>bigdata_repository</id>
+            <url>http://114.215.206.54:8080/nexus/content/repositories/bigdata_repository</url>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
         <!--Spring整合框架核心部件 -->
         <dependency>
