@@ -1,0 +1,5 @@
+为了安全考虑，上传的包不被公司拦截到，我们采用https方式上传jar到nexus服务器
+导入证书到信任库jdk/jre/lib/security/cacerts
+keytool.exe -import -alias cyznj -keystore cacerts -file cyznj.cer
+可以删除别名
+keytool.exe -delete -alias cyznj -keystore cacerts

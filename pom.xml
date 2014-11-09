@@ -8,13 +8,13 @@
     </properties>
     <groupId>org.cyznj.integration</groupId>
     <artifactId>dpmessage</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
     <distributionManagement>
         <repository>
             <id>bigdata_repository</id>
-            <url>http://114.215.206.54:8080/nexus/content/repositories/bigdata_repository</url>
+            <url>https://114.215.206.54:9443/nexus/content/repositories/bigdata_repository</url>
         </repository>
     </distributionManagement>
 
@@ -122,8 +122,8 @@
                 <version>3.2</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
         </plugins>
