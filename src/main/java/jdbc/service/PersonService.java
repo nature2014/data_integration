@@ -1,6 +1,7 @@
 package jdbc.service;
 
 import jdbc.Person;
+import jdbc.RequestParamater;
 import jdbc.inf.PersonServiceIf;
 
 import java.util.Arrays;
@@ -20,4 +21,5 @@ public class PersonService implements PersonServiceIf {
     public void handleMessage(List<Person> personList) {
         System.out.println(Arrays.deepToString(personList.toArray()));
     }
+
 }

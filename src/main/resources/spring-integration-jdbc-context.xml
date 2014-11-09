@@ -24,13 +24,33 @@
 
     <int:channel id="target"/>
 
+    <int:channel id="findPersonRequestChannel"/>
+    <int:channel id="findPersonReplyChannel"/>
+
+    <int:gateway id="hisPersonService" service-interface="jdbc.inf.HisPersonServiceIf">
+        <int:method name="findPersonByIdentityCard"
+                    request-channel="findPersonRequestChannel"
+                    request-timeout="2000"
+                    reply-channel="findPersonReplyChannel"
+                    reply-timeout="2000"/>
+    </int:gateway>
+
+    <int-jdbc:outbound-gateway data-source="dataSource"
+                               request-channel="findPersonRequestChannel"
+                               query="select * from person where identityNo=:payload.identityCard"
+                               reply-channel="findPersonReplyChannel" row-mapper="personResultMapper"
+                               requires-reply="false"
+                               max-rows-per-poll="1">
+    </int-jdbc:outbound-gateway>
+
     <!-- 查询Person表，然后成功之后更新时间戳flagtime-->
-    <int-jdbc:inbound-channel-adapter query="select id,name,gender,identitycard,birthday,flagtime from person where flagtime>:flagtime"
-                                      select-sql-parameter-source="parameterSource"
-                                      channel="target" data-source="dataSource"
-                                      update="update person set flagtime=now() where id in(:id)" row-mapper="personResultMapper">
-        <!--频率为：10秒间隔 -->
-        <int:poller fixed-rate="10000">
+    <int-jdbc:inbound-channel-adapter
+            query="select * from person where (createTime!=null and modifyTime>:flagtime) or (createTime>:flagtime and modifyTime=null)"
+            select-sql-parameter-source="parameterSource"
+            channel="target" data-source="dataSource"
+            update="update person set flagtime=now() where id in(:id)" row-mapper="personResultMapper">
+        <!--频率为：3600秒间隔 -->
+        <int:poller fixed-rate="3600000">
             <int:transactional/>
         </int:poller>
     </int-jdbc:inbound-channel-adapter>
@@ -50,7 +70,7 @@
     </bean>
 
     <bean id="statusBean" class="jdbc.service.FlagTimeService">
-        <property name="beforeMinute" value="-100"/>
+        <property name="beforeMinute" value="-60"/>
     </bean>
 
     <bean id="jdbcMessageHandler" class="jdbc.service.PersonService">
