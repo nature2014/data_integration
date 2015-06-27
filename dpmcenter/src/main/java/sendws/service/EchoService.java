@@ -13,4 +13,8 @@ public class EchoService implements MessageHandler {
 		System.out.println("response:" + message.getHeaders());
 		System.out.println(message.getPayload());
 	}
+
+	public String getMessage(String response) {
+		return response;
+	}
 }
