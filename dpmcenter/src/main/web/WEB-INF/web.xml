@@ -7,7 +7,7 @@
     <description>DPM message service</description>
 
     <servlet>
-        <servlet-name>PatientService</servlet-name>
+        <servlet-name>PatientServiceExporter</servlet-name>
         <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
@@ -17,7 +17,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>PatientService</servlet-name>
+        <servlet-name>PatientServiceExporter</servlet-name>
         <url-pattern>/patientservice</url-pattern>
     </servlet-mapping>
 
