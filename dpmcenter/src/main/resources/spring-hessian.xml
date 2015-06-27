@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/web-services/web-context.xsd">
+
+    <context:annotation-config/>
+    <!-- 组件扫描,使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
+    <context:component-scan base-package="com.cyznj.iservice"/>
+
+    <!-- 自动装配 -->
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    <bean id="patientService" class="com.cyznj.iservice.PatientServiceImpl"/>
+
+    <!-- Name保持与web.xml中的一致，web.xml下文中描述 -->
+    <bean name="/patientservice" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="patientService"/>
+        <!-- 接口的路径 -->
+        <property name="serviceInterface" value="com.cyznj.iservice.PatientService"/>
+    </bean>
+</beans>
