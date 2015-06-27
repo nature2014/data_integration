@@ -3,8 +3,6 @@ package com.cyznj.iservice;
 import com.cyznj.domain.RequestContext;
 import gateway.DataQueryGateway;
 
-import com.cyznj.domain.RequestContext;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
