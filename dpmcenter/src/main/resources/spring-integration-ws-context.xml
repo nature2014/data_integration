@@ -15,6 +15,12 @@
 
     <channel id="inputchannel"/>
     <channel id="outputchannel"/>
+    <channel id="responseChannel"/>
+
+    <gateway id="dataQueryGateway" service-interface="gateway.DataQueryGateway"
+             default-request-channel="inputchannel"
+             default-reply-channel="responseChannel"
+             default-reply-timeout="60"/>
 
     <chain input-channel="inputchannel" output-channel="outputchannel">
         <ws:header-enricher>
@@ -24,8 +30,9 @@
     </chain>
     <!--服务激活器 -->
     <service-activator input-channel="outputchannel"
+                       output-channel="responseChannel"
                        ref="echoService"
-                       method="handleMessage"/>
+                       method="getMessage"/>
 
     <!--服务实现类 -->
     <beans:bean id="echoService" class="sendws.service.EchoService"/>
