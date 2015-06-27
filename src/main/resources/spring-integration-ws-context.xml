@@ -13,17 +13,17 @@
 			http://www.springframework.org/schema/integration/ws
 			http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd">
 
-    <channel id="echo"/>
-    <channel id="output"/>
+    <channel id="inputchannel"/>
+    <channel id="outputchannel"/>
 
-    <chain input-channel="echo" output-channel="output">
+    <chain input-channel="inputchannel" output-channel="outputchannel">
         <ws:header-enricher>
-            <ws:soap-action value="http://localhost:8080/service"/>
+            <ws:soap-action value="http://114.215.206.54:9090/ws/"/>
         </ws:header-enricher>
-        <ws:outbound-gateway uri="http://localhost:8080/service"/>
+        <ws:outbound-gateway uri="http://114.215.206.54:9090/ws/"/>
     </chain>
     <!--服务激活器 -->
-    <service-activator input-channel="output"
+    <service-activator input-channel="outputchannel"
                        ref="echoService"
                        method="handleMessage"/>
 

@@ -1709,4 +1709,68 @@
          <sdf:sendTime>?</sdf:sendTime>
       </sdf:SendSms>
    </soap:Body>
-</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdfyy.cn/ServiceSoap/SendSmsRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdfyy.cn/ServiceSoap/SendSmsRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="patientEndpointSoap11" type="wsdl" bindingName="{http://www.cyznj.com/patients}patientEndpointSoap11" soapVersion="1_1" anonymous="optional" definition="http://114.215.206.54:9090/ws/patients.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://114.215.206.54:9090/ws/patients.wsdl"><con:part><con:url>http://114.215.206.54:9090/ws/patients.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.cyznj.com/patients" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.cyznj.com/patients" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.cyznj.com/patients">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.cyznj.com/patients" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getPatientByIdentityRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="identity" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPatientByIdentityResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="patient" type="tns:patient"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="patient">
+        <xs:sequence>
+          <xs:element name="main_index" type="xs:string"/>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="gender" type="xs:int"/>
+          <xs:element name="date_of_birth" type="xs:dateTime"/>
+          <xs:element name="address" type="xs:string"/>
+          <xs:element name="phone" type="xs:string"/>
+          <xs:element name="reg_date" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getPatientByIdentityResponse">
+    <wsdl:part element="tns:getPatientByIdentityResponse" name="getPatientByIdentityResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPatientByIdentityRequest">
+    <wsdl:part element="tns:getPatientByIdentityRequest" name="getPatientByIdentityRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="patientEndpoint">
+    <wsdl:operation name="getPatientByIdentity">
+      <wsdl:input message="tns:getPatientByIdentityRequest" name="getPatientByIdentityRequest"></wsdl:input>
+      <wsdl:output message="tns:getPatientByIdentityResponse" name="getPatientByIdentityResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="patientEndpointSoap11" type="tns:patientEndpoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getPatientByIdentity">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPatientByIdentityRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPatientByIdentityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="patientEndpointService">
+    <wsdl:port binding="tns:patientEndpointSoap11" name="patientEndpointSoap11"/>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints/><con:operation isOneWay="false" action="" name="getPatientByIdentity" bindingOperationName="getPatientByIdentity" type="Request-Response" outputName="getPatientByIdentityResponse" inputName="getPatientByIdentityRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://www.cyznj.com/patients">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pat:getPatientByIdentityRequest>
+         <pat:identity>320106700320243102</pat:identity>
+      </pat:getPatientByIdentityRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cyznj.com/patients/patientEndpoint/getPatientByIdentityRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
