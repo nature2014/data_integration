@@ -1,5 +1,6 @@
 package com.cyznj.iservice;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,7 +10,9 @@ import java.util.Map;
 public class PatientServiceImpl implements PatientService {
     @Override
     public Map<String, Object> queryPatient(String uid, Map<String, Object> context) {
-        return null;
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("name", "peterli");
+        return result;
     }
 
     @Override
