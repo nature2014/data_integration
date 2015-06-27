@@ -9,14 +9,14 @@ import java.util.Map;
  */
 public class PatientServiceImpl implements PatientService {
     @Override
-    public Map<String, Object> queryPatient(String uid, Map<String, Object> context) {
+    public Map<String, Object> queryPatient(String uid, Map<String, Object> parameters) {
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("name", "peterli");
         return result;
     }
 
     @Override
-    public List<Map<String, Object>> queryPatientHistoryRecord(String uid, Map<String, Object> context) {
+    public List<Map<String, Object>> queryPatientHistoryRecord(String uid, Map<String, Object> parameters) {
         return null;
     }
 }
