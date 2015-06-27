@@ -5,5 +5,5 @@
 /dpmclient/target
 /dpmclient/dpmclient.iml
 /dpmcenter/*.iml
-/dpmcenter/*
+/dpmcenter/target
 /classes
