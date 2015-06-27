@@ -5,11 +5,12 @@
     <parent>
         <artifactId>dpmessage</artifactId>
         <groupId>org.cyznj.integration</groupId>
-        <version>1.0.2</version>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <version>1.0.2-SNAPSHOT</version>
     <artifactId>dpmclient</artifactId>
+    <groupId>org.cyznj.integration</groupId>
     <packaging>jar</packaging>
 
 </project>

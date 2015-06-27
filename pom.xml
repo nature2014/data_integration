@@ -12,7 +12,7 @@
     </properties>
     <groupId>org.cyznj.integration</groupId>
     <artifactId>dpmessage</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <distributionManagement>
