@@ -13,6 +13,8 @@
 
     <import resource="inbound-gateway-config.xml"/>
 
+    <import resource="classpath:/spring-integration-ws-context.xml"/>
+
     <!-- Ensures that all incoming requests will be routed to the ws:inbound-gateway -->
     <bean class="org.springframework.ws.server.endpoint.mapping.UriEndpointMapping">
         <property name="defaultEndpoint" ref="ws-inbound-gateway"/>

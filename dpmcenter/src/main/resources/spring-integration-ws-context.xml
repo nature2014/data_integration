@@ -28,6 +28,7 @@
         </ws:header-enricher>
         <ws:outbound-gateway uri="http://114.215.206.54:9090/ws/"/>
     </chain>
+
     <!--服务激活器 -->
     <service-activator input-channel="outputchannel"
                        output-channel="responseChannel"

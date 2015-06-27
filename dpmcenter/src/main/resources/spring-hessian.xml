@@ -3,7 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="patientService" class="com.cyznj.iservice.PatientServiceImpl"/>
+    <bean id="patientService" class="com.cyznj.iservice.PatientServiceImpl">
+        <property name="dataQueryGateway" ref="dataQueryGateway" />
+    </bean>
+
     <!-- Name保持与web.xml中的一致，web.xml下文中描述 -->
     <bean name="PatientServiceExporter" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="patientService"/>
