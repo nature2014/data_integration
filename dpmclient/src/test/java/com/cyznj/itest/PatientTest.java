@@ -9,6 +9,7 @@ import java.util.Map;
  * Created by limin.llm on 2015/6/27.
  */
 public class PatientTest {
+
     public static void main(String[] args) {
         try {
             String url = "http://localhost/patientservice";
