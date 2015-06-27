@@ -32,7 +32,7 @@ import org.springframework.messaging.support.GenericMessage;
  * therefore a PollableChannel and its consumers must invoke receive() as
  * demonstrated below.
  * <p/>
- * View the configuration of the channels and the endpoint (a &lt;service-activator/&gt;
+ * View the configuration of the channels and the endpoint (a &lt;iservice-activator/&gt;
  * element) in 'helloWorldDemo.xml' within this same package.
  *
  * @author Mark Fisher
